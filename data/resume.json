@@ -1,0 +1,26 @@
+{
+	"experience": [
+		{
+			"id": 0,
+			"companyName": "Walmart",
+			"startYear": "2003",
+			"endYear": "2006",
+			"supervisor": {
+				"name": "Bob",
+				"number": 4325552666
+			},
+			"duties": "Cleaning up crap."
+		},
+		{	
+			"id": 1,
+			"companyName": "Target",
+			"startYear": "2006",
+			"endYear": "2010",
+			"supervisor": {
+				"name": "Sue",
+				"number": 4327778888
+			},
+			"duties": "Looking at girls"
+		}
+	]
+}

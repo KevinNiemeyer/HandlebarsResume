@@ -1,0 +1,32 @@
+
+.resume-container {
+  background-color: lightblue; 
+  color: darkblue;
+}
+
+.button {
+	border: none;
+	background: #5096;
+	text-align: center;
+	padding: 5px 20px;
+	border-radius: 0;
+	bottom: 20px;
+	right: 20px;
+	color: #c9ffed;
+	font-size: 16px;
+	font-family: "Source Code Pro", Arial, Helvetica, Sans-Serif;
+	cursor: pointer;
+	text-decoration: none;
+	
+}
+
+.button:hover {
+	background: deeppink;
+	color: #fff;
+}
+
+.job-duties-container {
+	background: #fff;
+	padding: 10px;
+
+}
