@@ -5,19 +5,91 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
-    <h1>Resume</h1>
-    <ul class="resume-container"></ul>
+    
+    <section class="resume-container"></section>
+
+    
     <script id="resume-template" type="text/x-handlebars-template">
-        {{#each experience}}
-			<li class="experience">
-			{{>  jobDutiesPartial}}
-			<a href="job-duties.html?id={{@index}}" class="button view-details">View details &#8674;</a>
-			</li>
-		{{/each}}
+        <div class="category"><h1 style="text-align: center">Resume</h1></div>
+        {{> resumeApplicantPartial}}
+        {{> resumeExperiencePartial}}
+		{{> resumeEducationPartial}}
+        {{> resumeReferencesPartial}}
 	</script>
+
+    <script id="resume-applicant-partial" type="text/x-handlebars-template">
+        <div class="category">
+            <h2>Applicant:</h2>
+            {{#with categories.applicant}}
+                <p>Name: {{name}}</p>
+                <p>Phone: {{formatPhoneNumber phoneNumber}}</p>
+                <p>Email: {{email}}</p>
+            {{/with}}
+        </div>
+    </script>
+
+    <script id="resume-experience-partial" type="text/x-handlebars-template">
+        <div class="category">
+            <h2>Experience:</h2>
+            {{#with categories}}
+                {{#each experience}}
+                    <div class="experience">
+                        <h3>{{this.companyName}}</h3>
+                        <p><strong>Title:</strong> {{title}}</p>
+                        <p><strong>Start Year:</strong> {{startYear}}</p>
+                        <p><strong>End Year:</strong> 
+                        {{#if endYear}}
+                        {{endYear}}
+                        {{else}}
+                        Present
+                        {{/if}}
+                    </p>
+                        <p><strong>Supervisor:</strong> {{supervisor.name}}</p>
+                        <p><strong>Supervisor's Phone Number:</strong> {{formatPhoneNumber supervisor.number}}</p>
+                        <p><strong>Supervisor's Email:</strong> {{supervisor.email}}</p>
+                        <p><strong>Description of Duties:</strong></p>
+                        <p>{{dutiesDescription}}</p>
+
+                        <hr />
+                    </div>
+                {{/each}}
+            {{/with}}
+        </div>
+    </script>
+
+    <script id="resume-education-partial" type="text/x-handlebars-template">
+        <div class="category">
+            <h2>Education:</h2>
+            {{#with categories}}
+                {{#each education}}
+                <p><strong>School: </strong>{{schoolName}}</p>
+                <p><strong>Major: </strong>{{major}}</p>
+                <p><strong>Degree: </strong>{{degree}}</p>
+                <p><strong>Year Graduated: </strong>{{yearGraduated}}</p>
+                <hr />
+                {{/each}}
+            {{/with}}
+        </div>
+    </script>
+
+    <script id="resume-references-partial" type="text/x-handlebars-template">
+        <div class="category">
+            <h2>References:</h2>
+            {{#with categories}}
+                {{#each references}}
+                <p><strong>Name: </strong> {{name}}</p>
+                <p><strong>Number: </strong> {{formatPhoneNumber number}}</p>
+                <p><strong>Relation: </strong> {{relation}}</p>
+                <p><strong>Years Known: </strong> {{yearsKnown}}</p>
+                <hr />
+                {{/each}}
+            {{/with}}
+        </div>
+    </script>
     <script src='js/jquery-3.3.1.js'></script>
     <script src='js/handlebars-v4.0.12.js'></script>
     <script src='js/scripts.js'></script>
+        
 </body>
 
 </html>
